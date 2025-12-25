@@ -117,7 +117,7 @@ class MultiPeriodABTestAnalyzer:
             print("-" * 50)
             
             for test_name, result in self.results[period].items():
-                significant_mark = "✅" if result['significant'] else "❌"
+                significant_mark = "" if result['significant'] else ""
                 direction = "B가 더 높음" if result['effect_size'] > 0 else "A가 더 높음"
                 
                 print(f"{significant_mark} {test_name:12} | A: {result['a_rate']:15} B: {result['b_rate']:15} | "
@@ -193,7 +193,7 @@ class MultiPeriodABTestAnalyzer:
             melted_df = self.to_melted_dataframe()
             melted_df.to_excel(writer, sheet_name='MELT형태', index=False)
             
-            print(f"✅\ 결과 저장: {filename}")
+            print(f"\ 결과 저장: {filename}")
             print("  - 일반형태 시트: 기본 분석 결과")
             print("  - MELT형태 시트: 태블로/시각화용")
     
